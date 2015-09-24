@@ -1,0 +1,52 @@
+/*html, body {padding: 0;margin: 0;background-color: #d3d3d3; font-family: Courier;}*/
+#design_mode canvas{border:1px solid #d3d3d3 !important;}
+#design.container{width: 1224px; margin: 0 auto;}
+#design .questionToolsLeft{width:70%; float: left;}
+#design .questionToolsRight{width:15%; float: right;}
+.clearFix{clear: both;}
+.gap20{padding-bottom: 20px;}
+.gap10{padding-bottom: 10px;}
+.gap3{padding-bottom: 3px;}
+.gap40{padding-bottom: 40px;}
+.toolIcon{float: left; width: 25%; border: 0px solid brown; padding: 3px;}
+.toolIcon img{cursor: pointer;}
+.questionToolsOptionDesign{min-height: 40px;}
+.toolIconInstruction{/*float: right; width: 65%;padding: 3px;*/font-size: 15px;}
+.questionToolsOptionDesign:hover{color:brown; cursor: pointer;}
+.noDisplay{display: none;}
+#drawFBDContainer {height: 100%;position: relative;}
+#tmp_canvas {position: absolute;left: 0px; right: 0;bottom: 0; top: 0;cursor: crosshair;}
+#pasteModalArea {position: absolute;width: 0;height: 0;top: -20px;left: -20px;}
+.kineticjs-content{background-color: #fff;}
+.questionToolsHorBar{width:30%;float: left;}
+.addQuestion{text-align: center;font-weight: bold;}
+.leftContent{float: left; width: 65%;}
+.questionDetailstudent, .questionToolsOptions{text-align: center;}
+/*student*/
+.container{width: 1035px; margin: 0 auto;}
+.questionToolsLeft{width:80%; float: left;}
+.questionToolsRight{width:20%; float: right;}
+.questionToolsOptionsContainer{width:100%; float: left;}
+.questionToolsOptions .questionToolsOption{border: 1px solid rgb(0, 0, 0); padding: 6px; -webkit-box-shadow: rgb(214, 214, 214) 6px 6px 0px; box-shadow: rgb(214, 214, 214) 6px 6px 0px; word-wrap: break-word; display: inline-block;font-size: 18px; text-align: center; font-weight: bold; color: brown; cursor: pointer; overflow: visible; width: 71px; height: 21px; background-color: rgb(255, 255, 255); border-bottom-left-radius: 5px;  border-bottom-right-radius: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px; margin-bottom: 5px;}
+.questionToolsOptions .questionToolsOption:hover{webkit-box-shadow: rgb(169, 169, 169) 6px 6px 0px;box-shadow: rgb(169, 169, 169) 9px 9px 0px;}
+.questionToolsForce{padding: 6px; word-wrap: break-word; font-size: 16px;  font-weight: bold; color: brown; cursor: pointer; overflow: visible;}
+.questionToolsForce:hover{color:red;}
+.drawAnswer{width:100%;}
+.fbd_box{overflow: visible; z-index: 1; width: 30px; height: 27px; top: 0px; left: 0px; background-color: rgb(255, 255, 255); position: relative; margin: 0 auto;}
+.fdb_box_centerpoint{position: absolute; border: 1px solid red; border-bottom-left-radius: 10px; overflow: visible; z-index: 2; border-top-left-radius: 10px; border-bottom-right-radius: 10px; border-top-right-radius: 10px; width: 8px; height: 8px; top: 10px; left: 10px; background-color: red; transform-origin:100% 40%;
+    -ms-transform-origin:100% 40%; /* IE 9 */
+    -webkit-transform-origin:100% 40%; /* Safari and Chrome */
+    -moz-transform-origin:100% 40%; /* Firefox */
+    -o-transform-origin:100% 40%;}
+.dnArrow{position: absolute; overflow: visible; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline; z-index: 2; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 40px; height: 80px; top: 4px; left: -16px; background-image: url(../images/dnArrow.png); background-size: 100% 100%; background-repeat: no-repeat;}
+.upArrow{position: absolute; overflow: visible; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline; z-index: 2; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 40px; height: 80px; top: -75px; left: -16px; background-image: url(../images/upArrow.png); background-size: 100% 100%; background-repeat: no-repeat;}
+.rtArrow{ position: absolute; overflow: visible; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline; z-index: 2; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 80px; height: 40px; top: -16px; left: 4px; background-image: url(../images/rtArrow.png); background-size: 100% 100%; background-repeat: no-repeat;}
+.ltArrow{position: absolute; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); display: inline; z-index: 4; overflow: visible; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 80px; height: 40px; top: -16px; left: -75px; background-image: url(../images/ltArrow.png); background-size: 100% 100%; background-repeat: no-repeat;}
+.ltText{position: absolute; padding: 8px; color: #000; display: inline; font-family: Helvetica, Arial, sans-serif; -webkit-user-select: none; font-size: 16px; word-wrap: break-word; cursor: default; overflow: visible; z-index: 8; text-align: right; width: 54px; height: 24px; top: 2px; left: -103px; font-weight: bold;}
+.rtText{position: absolute; padding: 8px; color: #000; display: inline; font-family: Helvetica, Arial, sans-serif; -webkit-user-select: none; font-size: 16px; word-wrap: break-word; cursor: default; overflow: visible; z-index: 8; text-align: right; width: 54px; height: 24px; top: 2px; left: 40px; font-weight: bold;}
+.dnText{position: absolute; padding: 8px; color: #000; display: inline; font-family: Helvetica, Arial, sans-serif; -webkit-user-select: none; font-size: 16px; word-wrap: break-word; cursor: default; overflow: visible; z-index: 8; text-align: right; width: 54px; height: 24px; top: 56px; left: -14px; font-weight: bold;}
+.upText{position: absolute; padding: 8px; color: #000; display: inline; font-family: Helvetica, Arial, sans-serif; -webkit-user-select: none; font-size: 16px; word-wrap: break-word; cursor: default; overflow: visible; z-index: 8; text-align: right; width: 54px; height: 24px; top: -80px; left: -15px; font-weight: bold;}
+.noDisplay{display: none;}
+.wrongAnswer{ position: absolute; overflow: visible; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); z-index: 2; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 16px; height: 16px; background-image: url(../images/wrong.png); background-size: 100% 100%; background-repeat: no-repeat;content: "";}
+.rightAnswer{ position: absolute; overflow: visible; -webkit-background-size: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); z-index: 2; opacity: 1; cursor: pointer; -webkit-user-select: none; width: 16px; height: 16px; background-image: url(../images/right.png); background-size: 100% 100%; background-repeat: no-repeat; content: "";}
+canvas{cursor: crosshair;}

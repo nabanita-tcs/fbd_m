@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+		<meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!-- <script language="javascript" src="lib/jquery-1.9.1.min.js"></script>
+		<script language="javascript" src="lib/jquery-migrate-1.2.1.min.js"></script> -->
+		
+		<script language="javascript" src="clickdrag_files/jquery-1.js"></script>
+		<script language="javascript" src="clickdrag_files/jquery-ui-1.js"></script>
+		
+        <!--[if gte IE 9]-->
+        	<script language="javascript" src="clickdrag_files/kinetic.js"></script> 
+        <!--[endif]-->
+		<script type="text/javascript" src="clickdrag_files/ezto_ext_api.xml"></script>		
+		<script type="text/javascript">
+		    var dName = document.domain;
+		   if ((dName.indexOf(".com") > -1) && (dName.indexOf(".") > -1)) {
+		      var temp = dName.split(".");
+		      dName = temp[temp.length - 2] + "." + temp[temp.length - 1];
+		    }	    
+		    document.domain= dName; 	    
+		</script>
+  	</head>
+	<body>    
+   		<input id="cndOut" value="" type="hidden">
+	   	<div id="clickdrag_wrapper" style="height:100%;width:100%;">
+	   		<div class="loader-overlay" style="display: none;">
+					<img style="margin:25% 0 0 50%;" src="clickdrag_files/ajax-loader.gif">
+			</div>
+			<span class="object-wrapper" style="width:100%;height:100%;">
+				<img style="margin:25% 0 0 50%;" src="clickdrag_files/ajax-loader.gif">
+			</span>		 
+	   	</div>    
+        <!--<script language="javascript" src="lib/cdauth-library-min.js?v2.0.20150122.0"></script>-->
+		<script language="javascript" src="clickdrag_files/jquery_003.js"></script>
+		<script language="javascript" src="clickdrag_files/jquery_002.js"></script>
+		<script language="javascript" src="clickdrag_files/jquery.js"></script>
+		<script language="javascript" src="clickdrag_files/auth-palette.js"></script>
+		<script language="javascript" src="clickdrag_files/htmlbox.js"></script>
+		<script language="javascript" src="clickdrag_files/charCounter.js"></script>
+		<script language="javascript" src="clickdrag_files/undomanager.js"></script>
+		<!--[if gte IE 9]-->  
+	   		<!--<script language="javascript" src="js/cdauth-min.js?v2.0.20150122.0"></script>-->
+				<script language="javascript" src="clickdrag_files/dataservices.js"></script>
+   		        
+	       		<script language="javascript" src="clickdrag_files/util.js"></script>
+   		        
+	       		<script language="javascript" src="clickdrag_files/globalConfig.js"></script>        
+   		        <script language="javascript" src="clickdrag_files/exerciseNames.js"></script>
+   		        <script language="javascript" src="clickdrag_files/stageConfig.js"></script>
+   		        <script language="javascript" src="clickdrag_files/canvasConfig.js"></script>
+   		        <script language="javascript" src="clickdrag_files/toolConfig.js"></script>
+   		        <script language="javascript" src="clickdrag_files/studentConfig.js"></script>
+	       		<script language="javascript" src="clickdrag_files/exerciseTypeExplanationCOI.js"></script>
+   		      	<script language="javascript" src="clickdrag_files/exerciseTypeExplanation.js"></script>
+   		        <script language="javascript" src="clickdrag_files/sentenceOrderExplanation.js"></script>
+	       		
+   		        <script language="javascript" src="clickdrag_files/labelconfig.js"></script>
+   		        <script language="javascript" src="clickdrag_files/labeltool.js"></script>
+   		        <script language="javascript" src="clickdrag_files/frameconfig.js"></script>
+   		        <script language="javascript" src="clickdrag_files/frametool.js"></script>
+	       		<script language="javascript" src="clickdrag_files/basetool.js"></script>
+	       		<script language="javascript" src="clickdrag_files/toolservice.js"></script>
+	       		<script language="javascript" src="clickdrag_files/dockconfig.js"></script>
+	       		
+       			<script language="javascript" src="clickdrag_files/FrameDefaults.js"></script>
+   		        <script language="javascript" src="clickdrag_files/validation.js"></script>
+	       		<script language="javascript" src="clickdrag_files/textSupSubCode.js"></script>
+	       		<script language="javascript" src="clickdrag_files/textFormat.js"></script>
+	       		<script language="javascript" src="clickdrag_files/textEditor.js"></script>
+	       		<script language="javascript" src="clickdrag_files/canvasText.js"></script>
+	       		<script language="javascript" src="clickdrag_files/frameText.js"></script>
+	       		<script language="javascript" src="clickdrag_files/labelText.js"></script>
+	       		<script language="javascript" src="clickdrag_files/dockText.js"></script>
+	       		<script language="javascript" src="clickdrag_files/commonLabelText.js"></script>
+	       		<script language="javascript" src="clickdrag_files/textStyle.js"></script>
+	       		<script language="javascript" src="clickdrag_files/labelTextStyle.js"></script>
+	       		
+	       		<script language="javascript" src="clickdrag_files/canvasData.js"></script>
+	       		<script language="javascript" src="clickdrag_files/canvasservices.js"></script>
+   		        <script language="javascript" src="clickdrag_files/canvas.js"></script>
+   		        <script language="javascript" src="clickdrag_files/resizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/sleRresizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/clsRresizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/coiResizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/prgRresizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/textRresizable.js"></script>
+	       		<script language="javascript" src="clickdrag_files/imageLoader.js"></script>
+	       		<script language="javascript" src="clickdrag_files/labelImageLoader.js"></script>
+	       		<script language="javascript" src="clickdrag_files/audioImageLoader.js"></script>
+	       		<script language="javascript" src="clickdrag_files/connector.js"></script>
+	       		<script language="javascript" src="clickdrag_files/frame.js"></script>
+	       		<script language="javascript" src="clickdrag_files/imagePreLoader.js"></script>
+	       		
+   		        <script language="javascript" src="clickdrag_files/startapp.js"></script>
+   		        <script language="javascript" src="clickdrag_files/stage.js"></script>
+	       		<script language="javascript" src="clickdrag_files/resetapp.js"></script>
+   		        
+   		        <script language="javascript" src="clickdrag_files/SLEDefaults.js"></script>
+   		        <script language="javascript" src="clickdrag_files/sleData.js"></script>
+   		        <script language="javascript" src="clickdrag_files/sleView.js"></script>
+   		        <script language="javascript" src="clickdrag_files/seqData.js"></script>
+   		        <script language="javascript" src="clickdrag_files/SEQDefaults.js"></script>
+   		        <script language="javascript" src="clickdrag_files/coiData.js"></script>
+   		        <script language="javascript" src="clickdrag_files/COIDefaults.js"></script>
+	       		<script language="javascript" src="clickdrag_files/coiView.js"></script>
+   		        <script language="javascript" src="clickdrag_files/prgData.js"></script>
+   		        <script language="javascript" src="clickdrag_files/PRGDefaults.js"></script>
+	       		<script language="javascript" src="clickdrag_files/prgView.js"></script>
+   		        <script language="javascript" src="clickdrag_files/clsData.js"></script>
+   		        <script language="javascript" src="clickdrag_files/CLSDefaults.js"></script>
+		       	<script language="javascript" src="clickdrag_files/clsView.js"></script>
+		<!--[endif]-->
+		<script language="javascript" src="clickdrag_files/cdinit.js"></script>
+		
+	   	
+	   	<!-- <script language="javascript" src="js/lib/vectordraw_lib.js?v2.0.20150122.0"></script>
+		<script language="javascript" src="js/cdstd-library-min.js?v2.0.20150122.0"></script>
+		<script language="javascript" src="js/cdstd-min.js?v2.0.20150122.0"></script> -->
+		
+		<script type="text/javascript" src="clickdrag_files/ClickDragApp_prod.js"></script>
+		
+		<script language="javascript" src="clickdrag_files/cdezto.js"></script>
+		<input id="clickDrag-version-2.0" value="v2.0.20150122.0" type="hidden">		 
+	
+
+<div id="modalboxPreCacheContainer" style="position:absolute; left:-9999px; top:-9999px;"><div id="modalBox"><div id="modalBoxBody"><div class="modalboxStyleContainerTopLeft"><div class="modalboxStyleContainerTopRight"><div class="modalboxStyleContainerContent"><div class="modalBoxBodyContent"><div id="modalBoxAjaxLoader">Please wait</div></div></div></div></div><div class="modalboxStyleContainerBottomLeft"><div class="modalboxStyleContainerBottomRight"></div></div><div id="modalBoxCloseButton"><a href="javascript:void(0);" class="closeModalBox"><span class="closeModalBox">Close Window</span></a></div></div></div></div></body></html>

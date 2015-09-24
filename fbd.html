@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/ezto_ext_api.js"></script>
+  <meta charset="utf-8">
+  <title>Draw Free Body Diagram</title>
+  <script src="js/kinetic.min.js"></script>
+  <script src="js/kinetic.editable.js"></script>
+   <link rel="stylesheet" href="css/fbd.css"/>
+   <link rel="stylesheet" href="css/jquery-ui.css"/>
+</head>
+<body>
+<input type="hidden" id="cndIn" value="">
+    <input type="hidden" id="cndOut" value="">
+<div class="container" id="design">
+<div>
+   <div style="float: left; font-size: 18px; font-weight: bold;">Free Body Diagram </div>
+
+  <!-- <div id="mode"  style="float: left; font-size: 14px; font-weight: bold; padding-left: 10px;padding-right: 10px; margin-top: 4px;">  Authoring Mode</div>
+   <div class="questionList">
+    <select onchange="changeMode(this.value);" id="selectMode">
+     <option value="design">Authoring Mode</option>
+     <option value="test">Student Mode</option>
+     <option value="sample">CheckMyWork Mode</option>
+     <option value="review">Review Mode</option>
+     <option value="preview">Preview Mode</option>
+    </select>
+   </div>-->
+   <div class="clearFix">&nbsp;</div>
+   </div>
+   <div class="questionSection">
+   <!--<div class="questionTitle">A rightward force is applied to a book in order to move it across a desk with a rightward acceleration. Consider frictional forces. Neglect air resistance. A free-body diagram for this situation looks like this:</div>
+   <div class="gap20">&nbsp;</div>-->
+   <div class="questionDetails" id="design_mode" style="display:none;">
+
+    <div class="questionTools">
+    <div class="leftContent">
+<div class="questionToolsHorBar">
+      <div class="questionToolsOptionDesign" onclick="drawFBDElement('line');">
+       <div class="toolIcon">
+        <img src="images/orange-line.png" height="20px" width="50" align="Line" title="Line"/>
+       </div>
+       <div class="toolIconInstruction">Draw surfaces, blocks etc.</div>
+     <div class="clearFix">&nbsp;</div>
+      </div>
+      <div class="questionToolsOptionDesign" onclick="drawFBDElement('circle');">
+       <div class="toolIcon">
+      <img src="images/circle.png" width="30" align="Circle" title="Circle"/>
+       </div>
+       <div class="toolIconInstruction">Draw pully.</div>
+     <div class="clearFix">&nbsp;</div>
+      </div>
+      <div class="questionToolsOptionDesign">
+       <div class="toolIcon fbd_box">
+	   <div class="fdb_box_centerpoint" style="top: 13px; left:13px;"></div>
+	   <div class="drawAnswer" id="dropDot" style="top: -16px; left: 0px;">
+     <div>
+      <div class="fdb_box_centerpoint">
+      <div id="downForce" class="noDisplay forces">
+       <div class="dnArrow"></div>
+       <div class="dnText">F<sub id="downTextSub"></sub></div>
+      </div>
+      <div id="upForce" class="noDisplay forces">
+       <div class="upArrow"></div>
+       <div class="upText">F<sub id="upTextSub"></sub></div>
+      </div>
+      <div id="leftForce" class="noDisplay forces">
+       <div class="ltArrow"></div>
+       <div class="ltText">F<sub id="leftTextSub"></sub></div>
+      </div>
+      <div id="rightForce" class="noDisplay forces">
+       <div class="rtArrow"></div>
+       <div class="rtText">F<sub id="rightTextSub"></sub></div>
+      </div>
+	  </div>
+     </div>
+    </div>
+  
+       </div>
+       <div class="toolIconInstruction" style="width:160px; margin-left: 67px;">Drag dot & drop in the center of that object where you want to add force(s)</div>
+     <div class="clearFix">&nbsp;</div>
+      </div>
+      <div class="questionToolsOptionDesign" onclick="drawFBDElement('rectangle');">
+       <div class="toolIcon">
+      <img src="images/rectangle.png" width="40" align="Rectangle" title="Rectangle"/>
+       </div>
+       <div class="toolIconInstruction">Draw blocks.</div>
+     <div class="clearFix"></div>
+      </div>
+	  <div class="questionToolsOptionDesign" onclick="$('#eventObject').val('rotateclock');">
+       <div class="toolIcon">
+      <img src="images/clockwise.png" width="30" align="Rotate Clock Wise" title="Rotate Clock Wise"/>
+       </div>
+       <div class="toolIconInstruction">Rotate Object Clock Wise</div>
+	   <div class="gap10"></div>
+     <div class="clearFix"></div>
+      </div>
+	  <div class="questionToolsOptionDesign" onclick="$('#eventObject').val('rotateanticlock');">
+       <div class="toolIcon">
+      <img src="images/anticlockwise.png" width="30" align="Rotate Anti Clock Wise" title="Rotate Anti Clock Wise"/>
+       </div>
+       <div class="toolIconInstruction">Rotate Object Anti Clock Wise</div>
+	   <div class="gap10"></div>
+     <div class="clearFix"></div>
+      </div>
+     <div class="questionToolsOptionDesign" onclick="$('#eventObject').val('erase');">
+       <div class="toolIcon">
+      <img src="images/delete.png" width="25" align="Erase" title="Erase"/>
+       </div>
+       <div class="toolIconInstruction">Erase object</div>
+     <div class="clearFix"></div>
+      </div>
+	  <div class="questionToolsOptionDesign" onclick="$('#design_mode .questionToolsRight').removeClass('noDisplay');">
+       <div class="toolIcon">
+      <img src="images/force.png" width="40" align="Force" title="Force"/>
+       </div>
+       <div class="toolIconInstruction">Add force.</div>
+     <div class="clearFix"></div>
+      </div>
+      <div class="questionToolsOptionDesign" onclick="addTextToCanvas();">
+       <div class="toolIcon">
+      <img src="images/text.png" width="30" align="Text" title="Text"/>
+       </div>
+       <div class="toolIconInstruction">Add text.</div>
+     <div class="clearFix"></div>
+      </div>
+      <div class="questionToolsOptionDesign" onclick="saveCanvas();">
+       <div class="toolIcon">
+      <img src="images/save-icon.png" width="30" align="Save" title="Save"/>
+       </div>
+       <div class="toolIconInstruction">I am Done</div>
+     <div class="clearFix">&nbsp;</div>
+      </div>
+      </div>
+     <div class="questionToolsLeft">
+<div id="drawFBDContainer">
+       <div id="canvasArea"></div>
+       <label for="pasteModalArea"></label>
+        <textarea rows="10" cols="60" id="pasteModalArea"></textarea>
+      </div>
+     </div>
+  </div>
+   <div class="questionToolsRight noDisplay">  
+      <div class="questionDetailstudent">
+    <div class="questionTools">
+     <div class="questionToolsLefts">
+      <div class="questionToolsTitle">Select below option to add, remove or change a force.</div>
+      <div class="gap10">&nbsp;</div>
+      <div class="questionToolsOptions">
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsOption top" data-option="UP">Up</div>
+        <div class="questionToolsOption down" data-option="DOWN">Down</div>
+		<div class="questionToolsOption left" data-option="LEFT">Left</div>
+        <div class="questionToolsOption right" data-option="RIGHT">Right</div>
+		<!--<div class="questionToolsOption other" data-option="RIGHT">Other</div>-->
+       </div>
+       <div class="clearFix">&nbsp;</div>
+      </div>
+     </div>
+     <div class="questionToolsRights noDisplay">
+	 <div class=""><span>Rotate (in degree)</span><input type="text" id="rotateId" name="rotateId" value="0" style="width: 20px;"/></div>
+      <div class="questionToolsTitle">Select <span id="optionType">DOWN</span>ward force.</div>
+      <div class="gap10">&nbsp;</div>
+      <div class="questionToolsOptions">
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsForce" data-sub="app">Applied</div>
+        <div class="questionToolsForce" data-sub="air">Air Resistance</div>
+        <div class="questionToolsForce" data-sub="spring">Spring</div>
+        <div class="questionToolsForce" data-sub="tens">Tension</div>
+       </div>
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsForce" data-sub="grav">Gravity</div>
+        <div class="questionToolsForce" data-sub="norm">Normal</div>
+        <div class="questionToolsForce" data-sub="frict">Friction</div>
+        <div class="questionToolsForce" data-sub="none">None</div>
+       </div>
+       <div class="clearFix">&nbsp;</div>
+      </div>
+     </div>
+     <div class="clearFix">&nbsp;</div>
+    </div>
+     </div>
+  <div class="clearFix">&nbsp;</div>
+  </div>
+  <div class="clearFix">&nbsp;</div>
+  </div>
+  </div>
+
+  
+  <div class="questionDetails" id="test_mode">
+  <div>Click on UP, DOWN, LEFT, RIGHT option to add, remove or change a force. When you are done click on "TICK" icon to save your answer. </div>
+  <div class="questionTools">
+   
+  <div class="questionToolsLeft">
+ 
+    <div id="drawFBDContainer">
+	<div class="questionToolsOptionDesign">
+       <div class="toolIcon" style="position: relative;">
+	   <div class="drawAnswer" id="dropDot" style="position: absolute;">
+     <div>
+      <div class="fdb_box_centerpoint">
+      <div id="downForce" class="noDisplay forces">
+       <div class="dnArrow"></div>
+       <div class="dnText">F<sub id="downTextSub"></sub></div>
+      </div>
+      <div id="upForce" class="noDisplay forces">
+       <div class="upArrow"></div>
+       <div class="upText">F<sub id="upTextSub"></sub></div>
+      </div>
+      <div id="leftForce" class="noDisplay forces">
+       <div class="ltArrow"></div>
+       <div class="ltText">F<sub id="leftTextSub"></sub></div>
+      </div>
+      <div id="rightForce" class="noDisplay forces">
+       <div class="rtArrow"></div>
+       <div class="rtText">F<sub id="rightTextSub"></sub></div>
+      </div>
+	  </div>
+     </div>
+    </div>
+  
+       </div>
+     </div>
+       <div id="canvasAreaLoad"></div>
+      </div>
+  </div>
+  <div class="questionToolsRight">
+   <div class="addQuestion">
+  <div style="cursor: pointer;" onclick="saveCanvasStudent()"><img src="images/done.png" width="50" align="" title="done"/></div></div>
+   <div class="gap10">&nbsp;</div>  
+      <div class="questionDetailstudent">
+    <div class="questionTools">
+     <div class="questionToolsLefts">
+      <div class="questionToolsTitle">Select below option to add, remove or change a force.</div>
+      <div class="gap10">&nbsp;</div>
+      <div class="questionToolsOptions">
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsOption top" data-option="UP">Up</div>
+        <div class="questionToolsOption down" data-option="DOWN">Down</div>
+		<div class="questionToolsOption left" data-option="LEFT">Left</div>
+        <div class="questionToolsOption right" data-option="RIGHT">Right</div>
+		<!--<div class="questionToolsOption other" data-option="OTHER">Other</div>-->
+       </div>
+       <div class="clearFix">&nbsp;</div>
+      </div>
+     </div>
+     <div class="questionToolsRights noDisplay">
+	 <div class=""><span>Rotate (in degree)</span><input type="text" id="rotateId" name="rotateId" value="0" style="width: 20px;"/></div>
+      <div class="questionToolsTitle">Select <span id="optionType">DOWN</span>ward force.</div>
+      <div class="gap10">&nbsp;</div>
+      <div class="questionToolsOptions">
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsForce" data-sub="app">Applied</div>
+        <div class="questionToolsForce" data-sub="air">Air Resistance</div>
+        <div class="questionToolsForce" data-sub="spring">Spring</div>
+        <div class="questionToolsForce" data-sub="tens">Tension</div>
+       </div>
+       <div class="questionToolsOptionsContainer">
+        <div class="questionToolsForce" data-sub="grav">Gravity</div>
+        <div class="questionToolsForce" data-sub="norm">Normal</div>
+        <div class="questionToolsForce" data-sub="frict">Friction</div>
+        <div class="questionToolsForce" data-sub="none">None</div>
+       </div>
+       <div class="clearFix">&nbsp;</div>
+      </div>
+     </div>
+     <div class="clearFix">&nbsp;</div>
+    </div>
+     </div>
+  <div class="clearFix">&nbsp;</div>
+  </div>
+   </div>
+  </div>
+  <div class="questionDetails" id="review_mode">
+  <div class="questionTools">
+  <div class="questionToolsLeft">
+    <div id="drawFBDContainer">
+	<div class="questionToolsOptionDesign">
+       <div class="toolIcon" style="position: relative;">
+	   <div class="drawAnswer" id="dropDot" style="position: absolute;">
+     <div>
+	 <div class="fdb_box_centerpoint">
+      <div id="downForce" class="noDisplay forces">
+       <div class="dnArrow"></div>
+       <div class="dnText">F<sub id="downTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span>
+	   </div>
+      </div>
+      <div id="upForce" class="noDisplay forces">
+       <div class="upArrow"></div>
+       <div class="upText">F<sub id="upTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span>
+	   </div>
+      </div>
+      <div id="leftForce" class="noDisplay forces">
+       <div class="ltArrow"></div>
+       <div class="ltText">F<sub id="leftTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span>
+	   </div>
+      </div>
+      <div id="rightForce" class="noDisplay forces">
+       <div class="rtArrow"></div>
+       <div class="rtText">F<sub id="rightTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span>
+	   </div>
+      </div>
+</div>
+	 </div>
+	 </div>
+	 </div>
+	 </div>
+       <div id="canvasAreaLoadReview"></div>
+      </div>
+  </div>
+   </div>
+  </div>
+  <div class="questionDetails" id="sample_mode">
+  <div class="questionTools">
+  <div class="questionToolsLeft">
+    <div id="drawFBDContainer">
+	<div class="questionToolsOptionDesign">
+       <div class="toolIcon" style="position: relative;">
+	   <div class="drawAnswer" id="dropDot" style="position: absolute;">
+     <div>
+	 <div class="fdb_box_centerpoint">
+      <div id="downForce" class="noDisplay forces">
+       <div class="dnArrow"></div>
+       <div class="dnText">F<sub id="downTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span></div>
+      </div>
+      <div id="upForce" class="noDisplay forces">
+       <div class="upArrow"></div>
+       <div class="upText">F<sub id="upTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span></div>
+      </div>
+      <div id="leftForce" class="noDisplay forces">
+       <div class="ltArrow"></div>
+       <div class="ltText">F<sub id="leftTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span></div>
+      </div>
+      <div id="rightForce" class="noDisplay forces">
+       <div class="rtArrow"></div>
+       <div class="rtText">F<sub id="rightTextSub"></sub>
+	   <span class="rightAnswer noDisplay"></span>
+	   <span class="wrongAnswer noDisplay"></span>
+	   </div>
+      </div>
+</div>
+	 </div>
+	 </div>
+	 </div>
+	 </div>
+       <div id="canvasAreaLoadSample"></div>
+      </div>
+  </div>
+   </div>
+  </div>
+<div class="questionDetails" id="preview_mode">
+  <div class="questionTools">
+  <div class="questionToolsLeft">
+    <div id="drawFBDContainer">
+	<div class="questionToolsOptionDesign">
+       <div class="toolIcon" style="position: relative;">
+	   <div class="drawAnswer" id="dropDot" style="position: absolute;">
+     <div>
+	  <div class="fdb_box_centerpoint">
+      <div id="downForce" class="noDisplay forces">
+       <div class="dnArrow"></div>
+       <div class="dnText">F<sub id="downTextSub"></sub></div>
+      </div>
+      <div id="upForce" class="noDisplay forces">
+       <div class="upArrow"></div>
+       <div class="upText">F<sub id="upTextSub"></sub></div>
+      </div>
+      <div id="leftForce" class="noDisplay forces">
+       <div class="ltArrow"></div>
+       <div class="ltText">F<sub id="leftTextSub"></sub></div>
+      </div>
+      <div id="rightForce" class="noDisplay forces">
+       <div class="rtArrow"></div>
+       <div class="rtText">F<sub id="rightTextSub"></sub></div>
+      </div>
+</div>
+	 </div></div></div></div>
+       <div id="canvasAreaLoadPreview"></div>
+      </div>
+   </div>
+  </div>
+  </div>
+<textarea name="optionTypeInput" id="optionTypeInput" style="height: 200px;width:400px;display:none;"></textarea>
+<textarea name="optionTypeInputForces" id="optionTypeInputForces" style="height: 200px;width:400px;display:none;"></textarea>
+<textarea name="optionTypeInputForcesOut" id="optionTypeInputForcesOut" style="height: 200px;width:400px;display:none;"></textarea>
+<input type="hidden" name="optionTypeInputDir" id="optionTypeInputDir"/>
+<input type="hidden" name="optionTypeTop" id="optionTypeTop"/>
+<input type="hidden" name="optionTypeLeft" id="optionTypeLeft"/>
+<input type="hidden" name="eventObject" id="eventObject"/>
+</div>
+</div>
+<script src="js/fbd.js"></script>
+</body>
+</html>
