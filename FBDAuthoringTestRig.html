@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="no-cache" http-equiv="Pragma">
+        <meta content="-1" http-equiv="expires">
+        <meta content="text/html; charset=UTF-8" equiv="Content-Type">
+        <title>FBD External Demo Page</title>
+
+        <script language="javascript" src="lib/jquery/core/jquery-1.7.min.js"></script>
+        <script type="text/javascript" src="local/ezto.js"></script>
+        <script type="text/javascript" src="local/ezto_ext.js"></script>
+        <script type="text/javascript">
+     	$(document).ready(function(){
+     		//extGather();	
+     	});
+        
+  	</script>
+        <style type="text/css">
+            .noScreen{
+                display:none;
+            }
+        </style>
+    </head>
+    <body style="width: 100%; margin: 10px; padding: 0pt;background-color:#FFF;">
+    	<table style="border:#750B0B solid 2px;margin:0 auto;border-radius:5px;" cellpadding="2px" cellspacing="0px">
+    		<tr style="background-color: #ccc;">
+    			<td align="center"><b>Mode:</b> 
+    								<select id="Q_1111_new_mode" name="Q_1111_new_mode" style="font:bold 12px Arial;">
+										<option value="design">design (Authoring)</option>
+										<option value="test">test</option>
+										<option value="review">review (After Submission)</option>
+										<option value="preview">preview (Instructor Preview)</option>
+										<option value="sample">sample (Check My Work)</option>
+									</select>
+				</td>
+    			<td align="center"><b>Attemp No.:</b><input type="text" value="1" name="attemptNo" ><br/></td>
+    			<td align="center"><b>Feedback Policy:</b>
+    								<select id="p_posttest" type="text" name="p_posttest" style="font:bold 12px Arial;">
+										<option value="feedback" selected>show detailed feedback</option>
+										<option value="scoreplus">show score with correct and incorrect indicators </option>
+										<option value="score">show total score only</option>
+										<option value="none">no feedback</option> 
+									</select>
+				</td>
+    		</tr>
+    		<tr style="background-color: #bbb;">
+    			<td colspan="2"><b>Input Data String:</b></td>
+    			<td colspan="1"><b>Output Data String:</b> <button id="retrive_btn" name="retrive_btn">retrive</button></td>
+    		</tr>
+    		<tr style="background-color: #bbb;">
+    			<td colspan="2">
+    				<textarea id="Q_1111_new_state" name="Q_1111_new_state" rows="2" cols="70"></textarea>
+    			</td>
+    				<td colspan="1">
+    				<textarea id="Q_1111_out" name="Q_1111_out" rows="2" cols="70"></textarea>
+    			</td>
+    			
+    		</tr>
+    		<tr style="background-color: #bbb;">
+
+    		</tr>
+    		<tr style="background-color: #bbb;">
+    		</tr>
+    		<tr style="background-color: #bbb;">
+    			<td colspan="3">
+    				<!-- <textarea id="state_out" name="state_out" rows="1" cols="140"></textarea> -->
+    			</td>
+    		</tr>
+    		
+    		<tr style="background-color: #aaa;">
+    			<td colspan="1"><b>Media Input:</b></td>
+    			<td colspan="2">
+    				<!--<input type="text" style="width:98%;" value="resources/images/imagebank/,puppy.png,124puppy.jpg,520cat.jpg,flower.jpg,diatom3.jpg,1c1114d1.png,c1114a.png,c1114b.png,c1114c.png,18_qt03_image01a.jpg,18_qt03_image01b.jpg,18_qt03_image01c.jpg,18_qt03_image01d.jpg,18_qt03_image01e.jpg,18_qt03_image01f.jpg,18_qt03_image01g.jpg,18_qt03_image01h.jpg,18_qt03_image01i.jpg,bro_422.jpg,bro0425.jpg,c0647.jpg" id="Q_1111_media" name="Q_1111_media"/>-->
+
+    				<input type="text" style="width:98%;" value="resources/images/imagebank/,puppy.png,124puppy.jpg,520cat.jpg,flower.jpg,diatom3.jpg,1c1114d1.png,c1114a.png,c1114b.png,c1114c.png,18_qt03_image01a.jpg,18_qt03_image01b.jpg,18_qt03_image01c.jpg,18_qt03_image01d.jpg,18_qt03_image01e.jpg,18_qt03_image01f.jpg,18_qt03_image01g.jpg,18_qt03_image01h.jpg,18_qt03_image01i.jpg,bro_422.jpg,bro0425.jpg,c0647.jpg" id="Q_1111_media" name="Q_1111_media"/>
+                    <!--<input type="text" style="width:98%;" value="http://ezto-qas.mhecloud.mhhe.com/jeff/13570164000646218.tp4?REQUEST=SHOWmedia&media=,c0104a.png,c0104.jpg,c0647.jpg,c0648.jpg,c0649.jpg,grapefruit.jpg,at5238_c.jpg,banana.jpg,vitamins.jpg,mcmh0004514_copy.jpg" id="Q_1111_media" name="Q_1111_media"/>-->
+    			</td>
+    		</tr>
+    	</table>
+	    <div class="rspStyle" style="margin:0 auto;text-align:center;">
+	        <input type="hidden" value="-2-2" name="Q_1111"/>
+	        <input type="hidden" value="100" id="Q_1111_new_eval" name="Q_1111_new_eval"/>
+		    <input type="hidden" value="1111" id="Q_1111_new_instanceid" name="Q_1111_new_instanceid"/>
+	        <input id="p_palette" type="hidden" value="french" name="p_palette">
+	        <input id="p_ignoreAccents" type="hidden" value="" name="p_ignoreAccents">
+	        <input id="p_fb_ignorecase" type="hidden" value="no" name="p_fb_ignorecase">
+	        <input id="p_fb_ignoreaccents" type="hidden" value="no" name="p_fb_ignoreaccents">
+	        <input type="hidden" value="preview" name="mode">
+	        <br/>
+	        <iframe style="background-color: #fff;border:1px solid #000;" height="600px" frameborder="0" width="1200px" src="fbd.html" id="Q_1111_new" name="Q_1111_new" class="wk_ex_iframe"></iframe>
+	    </div>
+	  <!--<div class="rightAnswers noScreen" id="1nd">
+            <div class="rspStyle" style="margin:0 auto;text-align:center;">
+                <input type="hidden" value="-2-2" name="Q_2222"/>
+                <input type="hidden" value="100" id="P_2222_new_eval" name="P_2222_new_eval"/>
+                <input type="hidden" value="2222" id="P_1111_new_instanceid" name="P_2222_new_instanceid"/>
+                <input id="p_palette" type="hidden" value="french" name="p_palette">
+                <input id="p_ignoreAccents" type="hidden" value="" name="p_ignoreAccents">
+                <input id="p_fb_ignorecase" type="hidden" value="no" name="p_fb_ignorecase">
+                <input id="p_fb_ignoreaccents" type="hidden" value="no" name="p_fb_ignoreaccents">
+                <input type="hidden" value="preview" name="P_2222_mode">
+                <br/>
+                <iframe style="background-color: #fff;border:1px solid #000;" height="600px" frameborder="0" width="800px" src="clickdragauth.html" id="P_2222_new" name="P_2222_new" class="wk_ex_iframe"></iframe>
+            </div>
+    </div> -->
+    </body>
+
+</html>

@@ -406,5 +406,14 @@
 </div>
 </div>
 <script src="js/fbd.js"></script>
+<script lang="javascript" type="text/javascript">
+/* need to be deleted when for server*/
+        $(document).ready(function(){
+          $('#retrive_btn',parent.document).click(function(){
+            $('#Q_1111_out', parent.document).val($('#cndOut').val());  
+          });
+        });
+        if($('#Q_1111_new_state',parent.document).val()!=''){$('#cndIn').val($('#Q_1111_new_state',parent.document).val());}
+</script>
 </body>
 </html>

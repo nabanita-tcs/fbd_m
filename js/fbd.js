@@ -331,7 +331,7 @@ function addTextToCanvas(){
 				
 				h++;
 			});
-			if($('#optionTypeTop').val()!=''){
+			if($('#cndIn').val()!=''){
         var json = stageDrawDesign.toJSON();
       }else{
         var json = stage.toJSON();
@@ -390,8 +390,12 @@ function addTextToCanvas(){
                 break;
                 case 'test':
 				addForce('test_mode');
+
                 var stageDraw = Kinetic.Node.create(jsonVal, 'canvasAreaLoad');
                   stageDraw.draw();
+                  if($('#cndIn').val()!=''){
+                   displayArrow('test_mode', $('#optionTypeInputForcesOut').val());
+                 }
 				  $('#'+txt+'_mode #dropDot').css('top',parseInt($('#optionTypeTop').val())+152+'px');
 				  $('#'+txt+'_mode #dropDot').css('left',parseInt($('#optionTypeLeft').val())-234+'px');
           //$('#design_mode').hide();
@@ -490,7 +494,9 @@ function checkAnswer(txt){
 $(function() {
     $("#design_mode #dropDot").draggable({ revert: "invalid" });
 	$( "#design_mode #canvasArea" ).droppable();
+  if($('#cndIn').val()==''){
 	$('#test_mode .fdb_box_centerpoint').hide();
+}
 	  layer.on('click', function(evt) {//alert('kkk');
     // get the shape that was clicked on
     var shape = evt.target;
